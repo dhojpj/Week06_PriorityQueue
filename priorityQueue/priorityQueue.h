@@ -129,17 +129,20 @@ void priorityQueue<D,P>::enqueue(const D& data, const P& priority)
 
     if(full())
         throw FULL_PQ;
+    else
+        cout << "Not full\n";
 cout << "enq1\n";
 
 
-cout << "*nextNode1\n";
+
+
+    node<D,P> *newNode;
+    cout << "*nextNode created\n";
 
 
 
-
-
-    node<D,P> *newNode = new node<D,P>(data,priority);
-    cout << "*newNode2\n";
+    newNode = new node<D,P>(data,priority);
+    cout << "*newNode initialized\n";
     if(!head)
     {
                 cout << "inside if header enq4\n";
@@ -190,9 +193,17 @@ const D& priorityQueue<D,P>::peek() const
 template<typename D, typename P>
 void priorityQueue<D,P>::dequeue(D& data)
 {
+    cout << "deq0\n";
     if(!head)
+    {
+        cout << "empty\n";
         throw EMPTY_PQ;
+    }
+    cout << "deq before pointer\n";
+
     node<D,P> *ptr = head;
+    cout << "deq after head pointer\n";
+
     data = head->getData();
     head = head->prevNode();
     head->nextNode() = NULL;

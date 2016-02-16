@@ -15,12 +15,16 @@ int main()
 //        cout << "enq-1\n";
     priorityQueue<int,int>* p = new priorityQueue<int,int>;
 
-//        p->enqueue(5,6);
+        p->enqueue(5,6);
 
 
 //        p->enqueue(1,1);
 
-    cin >> *p;
+//    int i;
+//    p->dequeue(i);
+
+//    cout << i << endl;
+//    cin >> *p;
 
         cout << *p << endl;
 
