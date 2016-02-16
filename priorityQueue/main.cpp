@@ -4,7 +4,7 @@
 //#include <fstream>
 //#include <sstream>
 #include "priorityQueue.h"
-
+//#include "node.h"
 using namespace std;
 
 //void perform(char choice, priorityQueue<string, int> &theQueue);
@@ -12,18 +12,22 @@ using namespace std;
 
 int main()
 {
-        cout << "enq-1\n";
+//        cout << "enq-1\n";
     priorityQueue<int,int>* p = new priorityQueue<int,int>;
-        cout << "enq0\n";
 
-        p->enqueue(5,6);
-
-
-        p->enqueue(1,1);
+//        p->enqueue(5,6);
 
 
-        cout << p->peek() << endl;
+//        p->enqueue(1,1);
 
+    cin >> *p;
+
+        cout << *p << endl;
+
+
+//    node<int,int> *n = new node<int,int>(5,7);
+
+//    cout << *n << endl;
 
 //    cout << "Hello\n";
     return 0;

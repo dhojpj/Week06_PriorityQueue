@@ -56,10 +56,12 @@ class node
         void copy(const node<D,P> &other);
 };
 
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++
 template<typename D, typename P>
 node<D,P>::node(const D& d, const P& p)
 {
+    cout << "node constructed\n";
+
     data = d;
     priority  = p;
     next = prev = NULL;

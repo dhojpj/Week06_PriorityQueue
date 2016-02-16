@@ -122,18 +122,33 @@ size_t priorityQueue<D,P>::max_size()
     return max_qty;
 }
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++
 template<typename D, typename P>
 void priorityQueue<D,P>::enqueue(const D& data, const P& priority)
 {
 
-    cout << "enq1\n";
     if(full())
         throw FULL_PQ;
+cout << "enq1\n";
+
+
+cout << "*nextNode1\n";
+
+
+
+
+
     node<D,P> *newNode = new node<D,P>(data,priority);
+    cout << "*newNode2\n";
     if(!head)
+    {
+                cout << "inside if header enq4\n";
         head = tail = newNode;
+        cout << "inside if header enq4\n";
+    }
     else
     {
+        cout << "inside else header enq1\n";
        node<D,P> *ptr;
        for( ptr = tail;
             ptr && (*newNode > *ptr);
@@ -161,6 +176,7 @@ void priorityQueue<D,P>::enqueue(const D& data, const P& priority)
        }
     }
     ++qty;
+    cout << "enq++\n";
 }
 
 template<typename D, typename P>
@@ -213,6 +229,8 @@ void priorityQueue<D,P>::nukem()
     head = tail = NULL;
 }
 
+
+// ++++++++++++++++++++++++++++++++++++++++++
 template<typename T, typename U>
 ostream& operator<<(ostream &out, const priorityQueue<T,U> &queue)
 {
@@ -224,14 +242,20 @@ ostream& operator<<(ostream &out, const priorityQueue<T,U> &queue)
      return out;
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++
 template<typename T, typename U>
 istream& operator>>(istream &in, priorityQueue<T,U> &queue)
 {
-      stringstream ss;
-      string line;
-      T data;
-      U priority;
-      if(&in == &cin)
+    cout << "in0 >>\n";
+    stringstream ss; // ss doesn't work
+    string line; // string doesn't work
+    T data;
+    U priority;
+    cout << "in1 >> created variables\n";
+
+    if(&in == &cin)
+      {
+              cout << "in1 >> if in == cin\n";
          while(1)
          {
              cout<<"Data: ";
@@ -248,6 +272,7 @@ istream& operator>>(istream &in, priorityQueue<T,U> &queue)
              ss.clear();
              queue.enqueue(data,priority);
          }
+      }
       else
          while(getline(in,line))
          {
